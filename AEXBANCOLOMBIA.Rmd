@@ -1,0 +1,57 @@
+---
+title: "Untitled"
+author: "Camilo Ibarra"
+date: "16/1/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+
+
+```{r cars}
+
+```
+
+
+
+```{r pressure, echo=FALSE}
+data1 <- read.csv("C:/Users/cibarra/OneDrive - Corporacion Centro de Innovacion REDDI/REDDI/Otros/Bancolombia/dt2020_base_evaluar.csv")
+
+data2 <- read.csv("C:/Users/cibarra/OneDrive - Corporacion Centro de Innovacion REDDI/REDDI/Otros/Bancolombia/dt2020_sample_submission.csv")
+
+
+data3<-merge(x=data1,y=data2, by=c("id_registro"),all.x = TRUE)
+data3$cantidad<-1
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r}
+summary(data3)
+```
+
+
+
+```{r}
+genero<-aggregate(data3$cantidad, by=list(data3$genero), FUN=sum)
+
+ecivil<-aggregate(data3$cantidad, by=list(data3$estado_civil), FUN=sum)
+
+nacad<-aggregate(data3$cantidad, by=list(data3$nivel_academico), FUN=sum)
+
+prof<-aggregate(data3$cantidad, by=list(data3$profesion), FUN=sum)
+
+ocup<-aggregate(data3$cantidad, by=list(data3$ocupacion), FUN=sum)
+
+vivienda<-aggregate(data3$cantidad, by=list(data3$tipo_vivienda), FUN=sum)
+
+ult<-aggregate(data3$cantidad, by=list(data3$ult_actual, FUN=sum)
+
+  ```
+
